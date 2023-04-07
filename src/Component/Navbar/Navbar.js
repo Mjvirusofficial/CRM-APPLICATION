@@ -17,7 +17,7 @@ function Navbar() {
     <div>
         <nav className="navbar navbar-expand-lg">
   <div className="container-fluid">
-    <NavLink className="navbar-brand custom-header size" id='name' to="/">MJ<span className='off'>Enterprises</span></NavLink>
+    <NavLink style={{fontSize:'2rem'}} className="navbar-brand custom-header size" id='name' to="/">MJ<span className='off'>Enterprises</span></NavLink>
     
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
