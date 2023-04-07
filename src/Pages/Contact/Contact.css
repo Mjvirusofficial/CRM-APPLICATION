@@ -1,0 +1,27 @@
+.emp-header{
+    text-transform: uppercase;
+}
+
+.search-box{
+    width: 150px;
+    border: none;
+    outline: none;
+}
+
+.search-box-wrapper{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(126, 126, 223);
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+.table-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .btnNew{
+    background-color: rgb(126, 223, 154);
+    color: white;
+} */

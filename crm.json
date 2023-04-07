@@ -1,0 +1,67 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Mjvirus",
+      "employee": 5000,
+      "status":"New",
+      "turnover": 14055,
+      "website": "mjvirus.com",
+      "ceo": "Deepak Ravidas",
+      "year": 2022
+    },
+    {
+      "id": 2,
+      "name": "virsat",
+      "employee": 5789,
+      "status":"Active",
+      "turnover": 14055,
+      "website": "viru.com",
+      "ceo": "vikrant Ravidas",
+      "year": 1987
+    },
+ 
+    {
+      "id": 3,
+      "name": "Virus",
+      "employee": 5000,
+      "status":"New",
+      "turnover": 14758,
+      "website": "mjvirus.com",
+      "ceo": "Harshika ",
+      "year": 2022
+    },
+    {
+      "id": 4,
+      "name": "pvr",
+      "employee": 5000,
+      "status":"Deactive",
+      "turnover": 17055,
+      "website": "mj-pvr.com",
+      "ceo": "rahul mehera",
+      "year": 2022
+    },
+    {
+      "id": 5,
+      "name": "Google",
+      "employee": 5000,
+      "status":"New",
+
+      "turnover": 14055,
+      "website": "google.com",
+      "ceo": "Sundar pichai",
+      "year": 1978
+    }
+  ],
+  "login": [
+    {
+      "name": "typicode"
+    }
+  ],
+  "register": {
+    "name": "Deepak",
+    "email": "deepakravidas565@gmail.com",
+    "phone": "9162496501",
+    "password": "mjmjmj"
+  }
+}
