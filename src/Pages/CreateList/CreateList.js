@@ -19,7 +19,7 @@ function CreateList() {
         return res.json();
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         // navigate("/");
       });
   }
