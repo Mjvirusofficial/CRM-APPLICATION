@@ -1,0 +1,51 @@
+.dashboard{
+    text-align: center;
+}
+
+.c1{
+    background-color: yellow;
+    border-radius: 6px;
+}
+
+.c2{
+    background-color: blue;
+    border-radius: 6px;
+    color: white;
+
+}
+
+.c3{
+    background-color: green;
+    border-radius: 6px;
+    color: white;
+
+}
+
+.c4{
+    background-color: red;
+    border-radius: 6px;
+        color: white;
+
+}
+
+.d2 p{
+  font-size: 1.8rem;
+}
+
+@media screen and (min-width: 1080px) {
+    .c1{
+       padding: 30px;
+    }
+
+    .c2{
+        padding: 30px;
+     }
+
+     .c3{
+        padding: 30px;
+     }
+
+     .c4{
+        padding: 30px;
+     }
+}

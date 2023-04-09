@@ -130,7 +130,7 @@ function Login() {
                             className="btn btn-primary float-start mt-2"
                             type="button"
                             value="Sign In"></input>
-                        <p className='  m-3' ><span className='dontHave'>Dont't have an account?</span> <Link to='/register' style={{ textDecoration: 'none', color: 'black' }}> <b>Join today</b></Link></p>
+                        <p className='  m-3' ><span className='dontHave'>Dont't have an account?</span> <Link to='/register' style={{ textDecoration: 'none', color: 'black', fontSize:'0.8rem'}}> <b>Join today</b></Link></p>
                     </div>
                 </div>
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Navbar from '../../Component/Navbar/Navbar';
 import './Contact.css'
+import Dashboard from '../../Component/Dashboard/Dashboard';
 function Contact() {
 
     const navigate = useNavigate()
@@ -13,7 +14,8 @@ function Contact() {
         }
     })
 
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
+
 
     const API = 'https://mycrmserver.netlify.app/api/customer/';
     const [search, setSearch] = useState('');
@@ -27,8 +29,12 @@ function Contact() {
         })
     }, [])
 
+    // console.log(search)
+
+    // function handleSearch(key){
 
 
+    // }
 
 
 
@@ -53,7 +59,12 @@ function Contact() {
             });
     }
 
-   
+
+
+    // filter(i => {
+    //     return i.name.toLowerCase().includes(search.toLowerCase())
+    // }).
+
 
     return (
         <>
@@ -67,7 +78,7 @@ function Contact() {
                 <div className="search-box-wrapper">
                     <input
                         placeholder="Search..."
-                        onChange={(e) => { setSearch(e.target.value) }}
+                        onInput={(e) => { setSearch(e.target.value) }}
                         // onClick={() => searching}
                         className="search-box" type="search" />&nbsp;&nbsp;
                     <svg xmlns="http:www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -77,76 +88,85 @@ function Contact() {
 
             </div>
 
+
+
+
             <div className="container mt-4">
                 <h1 className='text-center emp-header'>The list of your employee</h1>
             </div>
-
+           <Dashboard/>
             <div className="container-fluid overflow-scroll mt-4">
                 <div className="row">
                     <div className="col col-sm-12">
+                        {data.length === 0 && (
+                            <div className="container ">
+                                <div className="row ">
+                                    <div class="alert alert-primary   col-lg-12 " role="alert">
+                                        No Customers are available in system.
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
-                        <table class="table table-light">
-                            <thead className=''>
+                        {data.length > 0 && (
+                            <table class="table table-light">
+                                <thead className=''>
 
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">NAME</th>
-                                    <th scope="col">EMPLOYEE</th>
-                                    <th scope="col">STATUS</th>
-                                    <th scope="col">TURNOVER</th>
-                                    {/* <th scope="col">WEBSITE</th> */}
-                                    <th scope="col">CEO</th>
-                                    <th scope="col">YEAR</th>
-                                    <th scope="col" className='text-center'>ACTION</th>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">NAME</th>
+                                        <th scope="col">EMPLOYEE</th>
+                                        <th scope="col">STATUS</th>
+                                        <th scope="col">TURNOVER</th>
+                                        {/* <th scope="col">WEBSITE</th> */}
+                                        <th scope="col">CEO</th>
+                                        <th scope="col">YEAR</th>
+                                        <th scope="col" className='text-center'>ACTION</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                            
-
-                                {
-                                    data &&
-                                    data.filter(i => {
-                                        return i.name.toLowerCase().includes(search.toLowerCase())
-                                    }).map((i, index) => {
-
-                                        return <tr>
-                                            <th scope="row">{index + 1}</th>
-                                            <td>{i.name}</td>
-                                            <td>{i.employees}</td>
-                                            <td>{i.status}</td>
-                                            <td>{i.turnover}</td>
-                                            {/* <td>{i.website}</td> */}
-                                            <td>{i.ceo}</td>
-                                            <td>{i.year}</td>
-
-                                            <td className='center-text d-flex'>
-                                                <button onClick={() => handleEditClick(i.name)} className='btn btn-warning m-1'>Edit</button>
-                                                <button onClick={() => handleDeleteClick(i.name)} className='btn btn-danger m-1'>Remove</button>
-                                            </td>
-                                        </tr>
-                                    })
-                                }
-
-                            </tbody>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
 
 
+                                    {
 
-                        </table>
+                                        data.filter(i => {
+                                            return i.name.toLowerCase().includes(search.toLowerCase())
+                                        }).map((i, index) => {
+
+                                            return <tr>
+                                                <th scope="row">{index + 1}</th>
+                                                <td>{i.name}</td>
+                                                <td>{i.employees}</td>
+                                                <td>{i.status}</td>
+                                                <td>{i.turnover}</td>
+                                                {/* <td>{i.website}</td> */}
+                                                <td>{i.ceo}</td>
+                                                <td>{i.year}</td>
+
+                                                <td className='center-text d-flex'>
+                                                    <button onClick={() => handleEditClick(i.name)} className='btn btn-warning m-1'>Edit</button>
+                                                    <button onClick={() => handleDeleteClick(i.name)} className='btn btn-danger m-1'>Remove</button>
+                                                </td>
+                                            </tr>
+                                        })
+                                    }
+
+
+                                </tbody>
+
+
+
+
+                            </table>
+                        )
+                        }
                     </div>
                 </div>
-                </div>
+            </div>
 
-            {!data && (
-                <div className="container ">
-                    <div className="row ">
-                        <div class="alert alert-primary   col-lg-12 " role="alert">
-                            No Customers are available in system.
-                        </div>
-                    </div>
-                </div>
-            )}
+
 
         </>
     )
