@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Navbar from '../../Component/Navbar/Navbar';
 import './Contact.css'
 function Contact() {
@@ -16,7 +16,7 @@ function Contact() {
     const [data, setData] = useState();
 
     const API = 'https://mycrmserver.netlify.app/api/customer/';
-    const [search, setSearch]=useState('');
+    const [search, setSearch] = useState('');
 
 
     useEffect(() => {
@@ -27,7 +27,6 @@ function Contact() {
         })
     }, [])
 
-// console.log(data.filter(i => i.name.toLowerCase().includes('zi')))
 
 
 
@@ -35,13 +34,12 @@ function Contact() {
 
 
 
-
-    function handleEditClick(name) {
-        // console.log(name);
-        navigate("/create");
+    function handleEditClick(id) {
+        // console.log(id);
+        navigate(`/create/${id}`);
     }
 
- 
+
 
     function handleDeleteClick(name) {
         fetch(`${API}/${name}`, {
@@ -52,9 +50,10 @@ function Contact() {
             })
             .then((res) => {
                 setData(res);
-                setData(res);
             });
     }
+
+   
 
     return (
         <>
@@ -82,12 +81,13 @@ function Contact() {
                 <h1 className='text-center emp-header'>The list of your employee</h1>
             </div>
 
-
             <div className="container-fluid overflow-scroll mt-4">
                 <div className="row">
                     <div className="col col-sm-12">
+
                         <table class="table table-light">
                             <thead className=''>
+
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">NAME</th>
@@ -102,6 +102,7 @@ function Contact() {
                                 </tr>
                             </thead>
                             <tbody>
+                            
 
                                 {
                                     data &&
@@ -123,9 +124,7 @@ function Contact() {
                                                 <button onClick={() => handleEditClick(i.name)} className='btn btn-warning m-1'>Edit</button>
                                                 <button onClick={() => handleDeleteClick(i.name)} className='btn btn-danger m-1'>Remove</button>
                                             </td>
-
                                         </tr>
-
                                     })
                                 }
 
@@ -137,7 +136,17 @@ function Contact() {
                         </table>
                     </div>
                 </div>
-            </div>
+                </div>
+
+            {!data && (
+                <div className="container ">
+                    <div className="row ">
+                        <div class="alert alert-primary   col-lg-12 " role="alert">
+                            No Customers are available in system.
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </>
     )

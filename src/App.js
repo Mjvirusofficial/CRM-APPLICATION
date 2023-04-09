@@ -22,6 +22,8 @@ function App() {
       <Route path='/navbar' element={<Navbar/>}/>
       <Route path='/footer' element={<Footer/>}/>
       <Route path='/create' element={<CreateList/>}/>
+      <Route path='/create' element={<CreateList/>}/>
+      <Route path='/create/:name' element={<CreateList/>}/>
 
     </Routes>
     <Footer/>
