@@ -202,7 +202,8 @@ function Contact() {
             </div>
 
 
-            <nav className='' aria-label="Page navigation example">
+        <div className="mt-4">
+        <nav className='' aria-label="Page navigation example">
                 <ul className="pagination justify-content-center">
                     <li className="page-item ">
                         <button className="page-link" onClick={() => setPage(page - 1)} >◀️</button>
@@ -228,6 +229,7 @@ function Contact() {
                     </li>
                 </ul>
             </nav>
+        </div>
 
         </>
     )
