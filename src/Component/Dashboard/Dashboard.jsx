@@ -7,34 +7,34 @@ function Dashboard(mj) {
         <div className="container dashboard ">
            <div className="row d2">
             <div className="col-6 col-lg-3 col-md-4">
-                <div className="c1">
+                <div onClick={mj.dashbordClick} className="c1">
                     <p>All Enteries</p>
-                    {/* <p>{mj.total}</p> */}
-                    <p>300</p>
+                    <p>{mj.count.total}</p>
+                    {/* <p>300</p> */}
                 </div>
             </div>
 
             <div className="col-6 col-lg-3 col-md-4">
-                <div className="c2">
+                <div onClick={mj.dashbordClick} className="c2">
                     <p>New</p>
-                    {/* <p>{mj.new}</p> */}
-                    <p>150</p>
+                    <p>{mj.count.newdata}</p>
+                    {/* <p>150</p> */}
                 </div>
             </div>
 
             <div className="col-6 col-lg-3 col-md-4">
-                <div className="c3">
+                <div onClick={mj.dashbordClick} className="c3">
                     <p>Accepted</p>
-                    {/* <p>{mj.accepted}</p> */}
-                    <p>280</p>
+                    <p>{mj.count.accepted}</p>
+                    {/* <p>280</p> */}
                 </div>
             </div>
 
             <div className="col-6 col-lg-3 col-md-3">
-                <div className="c4">
+                <div onClick={mj.dashbordClick} className="c4">
                     <p>Rejected</p>
-                    {/* <p>{mj.rejected}</p> */}
-                    <p>20</p>
+                    <p>{mj.count.rejected}</p>
+                    {/* <p>20</p> */}
                 </div>
             </div>
 

@@ -50,7 +50,7 @@ function Create() {
   return (
     <div>
       <Navbar />
-      <div className="container">
+      <div className="container mb-3">
         <h1 className='text-center '> {name ? 'Update Company' : 'Create Company'}</h1>
         <div class="form-group col-md-5 col-10 mx-auto mt-4">
           <label for="exampleInputEmail1"><h5>Name</h5></label>
@@ -59,27 +59,27 @@ function Create() {
 
         <div class="form-group col-md-5 col-10 mx-auto">
           <label for="exampleInputEmail1"><h5>Employee</h5></label>
-          <input value={newData.employees}  onChange={(e) => { setNewData({ ...newData, email: e.target.value }) }} type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter employee" />
+          <input value={newData.employees}  onChange={(e) => { setNewData({ ...newData, employees: e.target.value }) }} type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter employee" />
         </div>
 
         <div class="form-group col-md-5 col-10 mx-auto">
           <label for="exampleInputEmail1"><h5>Turnover</h5></label>
-          <input value={newData.turnover} type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter turnover" />
+          <input value={newData.turnover} onChange={(e) => { setNewData({ ...newData, turnover: e.target.value }) }} type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter turnover" />
         </div>
 
         <div class="form-group col-md-5 col-10 mx-auto">
           <label for="exampleInputEmail1"><h5>Status</h5></label>
-          <input value={newData.status} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter status" />
+          <input value={newData.status} onChange={(e) => { setNewData({ ...newData, status: e.target.value }) }} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter status" />
         </div>
 
         <div class="form-group col-md-5 col-10 mx-auto">
           <label for="exampleInputEmail1"><h5>CEO</h5></label>
-          <input value={newData.ceo} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ceo name" />
+          <input value={newData.ceo} onChange={(e) => { setNewData({ ...newData, ceo: e.target.value }) }} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ceo name" />
         </div>
 
         <div class="form-group col-md-5 col-10 mx-auto">
           <label for="exampleInputEmail1"><h5>Year</h5></label>
-          <input value={newData.year} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter establish year" />
+          <input value={newData.year} onChange={(e) => { setNewData({ ...newData, year: e.target.value }) }} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter establish year" />
         </div>
 
 

@@ -2,7 +2,8 @@ import React from 'react'
 import './Footer.css';
 function Footer() {
   return (
-    <div><br /><br />
+    <div>
+     {/* <br /><br /> */}
     <footer class="bg-dark text-center text-white">
     {/* <!-- Grid container --> */}
     <div class="container p-4 pb-0">

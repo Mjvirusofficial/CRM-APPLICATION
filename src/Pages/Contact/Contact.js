@@ -14,27 +14,59 @@ function Contact() {
         }
     })
 
+    const [filterData, setFilterData] = useState([]);
+
     const [data, setData] = useState([]);
+    const [page, setPage] = useState(1);
+
 
 
     const API = 'https://mycrmserver.netlify.app/api/customer/';
-    const [search, setSearch] = useState('');
+    const [dashbord, setDashboard] = useState('');
 
 
     useEffect(() => {
         fetch(API).then(res => {
             return res.json()
         }).then(r => {
+
+            //Per Page
+            const pagination = r.slice(page * 10 - 10, page * 10);
+
             setData(r)
+
+            // console.log(r)
+            setFilterData(r)
+
+
+
+            // console.log(r)
+            let newData = pagination.filter(i => i.status === 'New').length;
+            let accepted = pagination.filter(i => i.status === 'Accepted').length;
+            let rejected = pagination.filter(i => i.status === 'Rejected').length;
+
+            const obj = {
+                'total': pagination.length,
+                'newdata': newData,
+                'accepted': accepted,
+                'rejected': rejected
+            }
+            setDashboard(obj)
+
+
+
         })
     }, [])
 
     // console.log(search)
 
-    // function handleSearch(key){
-
-
-    // }
+    function handleSearch(key) {
+        if (!key || key.length === 0) {
+            setData(filterData)
+        }
+        const a = filterData.filter(i => i.name.toLowerCase().includes(key))
+        setData(a)
+    }
 
 
 
@@ -61,6 +93,7 @@ function Contact() {
 
 
 
+
     // filter(i => {
     //     return i.name.toLowerCase().includes(search.toLowerCase())
     // }).
@@ -78,7 +111,7 @@ function Contact() {
                 <div className="search-box-wrapper">
                     <input
                         placeholder="Search..."
-                        onInput={(e) => { setSearch(e.target.value) }}
+                        onInput={(e) => { handleSearch(e.target.value) }}
                         // onClick={() => searching}
                         className="search-box" type="search" />&nbsp;&nbsp;
                     <svg xmlns="http:www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -94,7 +127,7 @@ function Contact() {
             <div className="container mt-4">
                 <h1 className='text-center emp-header'>The list of your employee</h1>
             </div>
-           <Dashboard/>
+            <Dashboard count={dashbord} />
             <div className="container-fluid overflow-scroll mt-4">
                 <div className="row">
                     <div className="col col-sm-12">
@@ -131,9 +164,7 @@ function Contact() {
 
                                     {
 
-                                        data.filter(i => {
-                                            return i.name.toLowerCase().includes(search.toLowerCase())
-                                        }).map((i, index) => {
+                                        data.slice(page * 10 - 10, page * 10).map((i, index) => {
 
                                             return <tr>
                                                 <th scope="row">{index + 1}</th>
@@ -162,11 +193,41 @@ function Contact() {
                             </table>
                         )
                         }
+
+
                     </div>
                 </div>
+
+
             </div>
 
 
+            <nav className='' aria-label="Page navigation example">
+                <ul className="pagination justify-content-center">
+                    <li className="page-item ">
+                        <button className="page-link" onClick={() => setPage(page - 1)} >◀️</button>
+                    </li>
+
+                    {/* {
+    [...Array(data && data.length/10)].map((_,id) =>{
+        return <span>{id+1}</span>
+    })
+   } */}
+
+                    <li className="page-item"><button onClick={() => setPage(1)} className="page-link" >1</button></li>
+                    <li className="page-item"><button onClick={() => setPage(2)} className="page-link" >2</button></li>
+                    <li className="page-item"><button onClick={() => setPage(3)} className="page-link" >3</button></li>
+                    <li className="page-item"><button onClick={() => setPage(4)} className="page-link" >4</button></li>
+                    <li className="page-item"><button onClick={() => setPage(5)} className="page-link" >5</button></li>
+                    <li className="page-item"><button onClick={() => setPage(6)} className="page-link" >6</button></li>
+                    {/* <li className="page-item"><button onClick={() => setPage(7)} className="page-link" >7</button></li> */}
+                    {/* <li className="page-item"><button onClick={() => setPage(8)} className="page-link" >8</button></li> */}
+
+                    <li className="page-item">
+                        <button onClick={() => setPage(page + 1)} className="page-link" >▶️</button>
+                    </li>
+                </ul>
+            </nav>
 
         </>
     )
