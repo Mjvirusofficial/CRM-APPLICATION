@@ -40,7 +40,7 @@ function Contact() {
 
 
 
-            // console.log(r)
+            console.log(r)
             let newData = pagination.filter(i => i.status === 'New').length;
             let accepted = pagination.filter(i => i.status === 'Accepted').length;
             let rejected = pagination.filter(i => i.status === 'Rejected').length;
@@ -56,7 +56,7 @@ function Contact() {
 
 
         })
-    })
+    },[])
 
     // console.log(search)
 
@@ -167,10 +167,10 @@ function Contact() {
                                         data.slice(page * 10 - 10, page * 10).map((i, index) => {
 
                                             return <tr>
-                                                <th scope="row">{index + 1}</th>
+                                                <th scope="row">{index + 1 }</th>
                                                 <td>{i.name}</td>
                                                 <td>{i.employees}</td>
-                                                <td>{i.status}</td>
+                                                <td >{i.status.toUpperCase()}</td>
                                                 <td>{i.turnover}</td>
                                                 {/* <td>{i.website}</td> */}
                                                 <td>{i.ceo}</td>
@@ -221,6 +221,7 @@ function Contact() {
                     <li className="page-item"><button onClick={() => setPage(4)} className="page-link" >4</button></li>
                     <li className="page-item"><button onClick={() => setPage(5)} className="page-link" >5</button></li>
                     <li className="page-item"><button onClick={() => setPage(6)} className="page-link" >6</button></li>
+                   
                     {/* <li className="page-item"><button onClick={() => setPage(7)} className="page-link" >7</button></li> */}
                     {/* <li className="page-item"><button onClick={() => setPage(8)} className="page-link" >8</button></li> */}
 
