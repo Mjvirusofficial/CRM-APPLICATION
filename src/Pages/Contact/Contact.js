@@ -170,7 +170,7 @@ function Contact() {
                                                 <th scope="row">{index + 1 }</th>
                                                 <td>{i.name}</td>
                                                 <td>{i.employees}</td>
-                                                <td >{i.status.toUpperCase()}</td>
+                                                <td className={i.status.toUpperCase() === 'ACCEPTED' ? 'green' :'' || i.status.toUpperCase() === 'REJECTED' ? 'red' :'' || i.status.toUpperCase() === 'NEW' ? 'blue' :''} >{i.status.toUpperCase()}</td>
                                                 <td>{i.turnover}</td>
                                                 {/* <td>{i.website}</td> */}
                                                 <td>{i.ceo}</td>
