@@ -56,7 +56,7 @@ function Contact() {
 
 
         })
-    },[])
+    },[page])
 
     // console.log(search)
 
