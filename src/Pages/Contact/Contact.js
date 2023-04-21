@@ -64,7 +64,7 @@ function Contact() {
         if (!key || key.length === 0) {
             setData(filterData)
         }
-        const a = filterData.filter(i => i.name.toLowerCase().includes(key))
+        const a = filterData.filter(i => i.name.toLowerCase().includes(key.toLowerCase()))
         setData(a)
     }
 
