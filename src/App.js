@@ -10,7 +10,18 @@ import CreateList from './Pages/CreateList/CreateList';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 function App() {
+
+  useEffect(() => {
+ // Define the 'otpless' function
+ window.otpless = (otplessUser) => {
+  // alert(JSON.stringify(otplessUser));
+  console.log(JSON.stringify(otplessUser))
+ };
+}, []);
+
+
   return (
    <>
           <ToastContainer position='top-center'/>
